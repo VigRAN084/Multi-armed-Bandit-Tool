@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<div class="settings">
+    <head> 
+        <title> Multi-Arm Bandit Problem </title>
+    </head>
+    <body>
+        <h1>Multi-Arm Bandit Problem</h1>
+        
+        <p> 
+            The following interactive tool demonstrates such a scenario. Feel free to play the game and see if you can beat the algorithm!
+        </p>
+        
+        <div style="width:100%">
+		    <svg width="10000" height="400" border = "1">
+                <g id="scores">
+                    <text  x="0" y="20" fill="royalblue">Your total score: </text><text id="userScore" x="120" y="20" fill="royalblue"> 0</text>
+                </g>
+                <g id="machines">
+                    <text  x="0" y="40" fill="black">Click on one of the yellow boxes to choose an arm. The top value in each box represents
+                        the number of times that arm has been chosen and the bottom value is the total reward that has been generated from that box.  
+                    </text>
+                    <g id="machine0">
+                        <rect id="machineBody0" stroke="black" x="50" y="60" width="200" height="75" fill="yellow" rx="5" ry="5" onclick="generateRewardUser(1)"></rect> 
+                        <text x="80" y="92" id="user_n1" fill="black">0</text>    
+                        <text x="80" y="110" id="user_reward1" fill="black">0</text>                   
+                    </g>
+                    <g id="machine1">
+                        <rect id="machineBody1" stroke="black" x="300" y="60" width="200" height="75" fill="yellow" rx="5" ry="5" onclick="generateRewardUser(2)"></rect> 
+                        <text x="330" y="92" id="user_n2" fill="black">0</text>       
+                        <text x="330" y="110" id="user_reward2" fill="black">0</text>                   
+                    </g>
+                    <g id="machine2">
+                        <rect id="machineBody2" stroke="black" x="550" y="60" width="200" height="75" fill="yellow" rx="5" ry="5" onclick="generateRewardUser(3)"></rect> 
+                        <text x="580" y="92" id="user_n3" fill="black">0</text>       
+                        <text x="580" y="110" id="user_reward3" fill="black">0</text>                   
+                    </g>
+                </g>
+                
+            </svg>
+        </div>
+       
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="interactiveSimple.js"></script>
+        <script>
+            //epsilon - the chance to choose randomly
+            var epsilon = 0.1;
+            
+            //avg_score - score divided by the number of selections
+            var user_score = 0; 
+            var avg_score = 0; 
+
+            var alg_score = 0;
+        
+         
+            //the slot machines
+            var user_slot_machines;
+            var algo_slot_machines;
+                    
+            //Setup the svg canvas and the borders 
+            // initialise the variables svg, border, width, height
+            setup_interactive_machines();
+            
+        </script>
+       
+    </body>
+</html>
